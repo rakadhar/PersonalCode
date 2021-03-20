@@ -8,6 +8,7 @@ public class MyApps {
 		//BaseballCoach theCoach = new BaseballCoach(); //before interface
 		//Coach theCoach = new BaseballCoach(); //after interface
 		  Coach theCoach = new TrackCoach();
+		
 		//use the object
         System.out.println(theCoach.getDailyWorkOut());
 	  }
