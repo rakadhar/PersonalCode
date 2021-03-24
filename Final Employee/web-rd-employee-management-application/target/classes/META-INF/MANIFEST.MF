@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: dutta
+Build-Jdk: 11.0.8
+Implementation-Title: employees-app
+Implementation-Version: 1.0.0
+Implementation-Vendor-Id: com.rd.springboot
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/employees-app
+Created-By: Maven Integration for Eclipse
+
