@@ -7,7 +7,7 @@ USE `employee_directory`;
 
 DROP TABLE IF EXISTS `employee`;
 
-CREATE TABLE `employee` (
+CREATE TABLE `dim_employee` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(45) DEFAULT NULL,
   `last_name` varchar(45) DEFAULT NULL,
@@ -16,18 +16,62 @@ CREATE TABLE `employee` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 --
--- Data for table `employee`
+-- Data for table `dim_employee`
 --
 
-INSERT INTO `employee` VALUES 
+INSERT INTO `dim_employee` VALUES 
 	(1,'Terry','McGin','Terry@test.com'),
 	(2,'Emma','Baumgarten','emma@test.com'),
 	(3,'Avani','Gupta','avani@test.com'),
 	(4,'Yuri','Petrov','yuri@test.com'),
 	(5,'Juan','Vega','juan@test.com');
     
+    
   --
--- Table structure for table `users`
+-- Table to keep all our different regulations and policies  `dim_regulations`
+--  
+    CREATE TABLE `employee_directory`.`dim_regulations` (
+  `Regulations_id` int(11) NOT NULL AUTO_INCREMENT,
+  `Regualtion_Name` VARCHAR(45) NULL,
+  `Regualtion_Desc` VARCHAR(500) NULL,
+  PRIMARY KEY (`Regulations_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+-- 
+-- dimension data for policy/regulations
+--
+INSERT INTO `employee_directory`.`dim_regulations` (`Regualtion_Name`, `Regualtion_Desc`) VALUES ('Fire Safety rule', 'Wear boots and helmet');
+INSERT INTO `employee_directory`.`dim_regulations` (`Regualtion_Name`, `Regualtion_Desc`) VALUES ('Leave policy', 'Mandatory 14 days in a year ');
+
+-- 
+-- Final fact table 
+
+
+CREATE TABLE `employee` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(45) DEFAULT NULL,
+  `last_name` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `regulations_id` int(11),
+  `regulation_name` varchar(45) DEFAULT NULL,
+  `add_comments` varchar(500) NULL ,  
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+--
+-- data from employee and regulation 
+--
+
+INSERT INTO `employee` VALUES 
+	(1,'Terry','McGin','Terry@test.com',1,'Fire Safety rule',''),
+	(2,'Emma','Baumgarten','emma@test.com',1,'Fire Safety rule',''),
+	(3,'Avani','Gupta','avani@test.com',1,'Fire Safety rule',''),
+	(4,'Yuri','Petrov','yuri@test.com',1,'Fire Safety rule',''),
+	(5,'Juan','Vega','juan@test.com',1,'Fire Safety rule','');
+    
+
+  --
+-- Table structure for table `users` to apply Role based security model 
 --
   
     CREATE TABLE `users` (
@@ -73,6 +117,8 @@ CREATE TABLE `authorities` (
 INSERT INTO `authorities` 
 VALUES 
 ('Emma','ROLE_EMPLOYEE'),
+('Yuri','ROLE_EMPLOYEE'),
+('Juan','ROLE_EMPLOYEE'),
 ('Terry','ROLE_EMPLOYEE'),
 ('Terry','ROLE_MANAGER'),
 ('Avani','ROLE_EMPLOYEE'),

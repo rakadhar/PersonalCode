@@ -37,8 +37,16 @@
 		<input class="form-control  ml-5 mr-sm-2 mb-3" type="search" name="employeeName" placeholder="Search by name" />
 
 		<button class="btn btn-success mb-3" type="submit">Search</button>
+		
     </form>	
-	
+	   <form th:action="@{/employees/search}" class="form-inline">
+		<a th:href="@{/employees/showFormForComment}"
+			class="btn btn-primary btn-sm mr-5 mb-3">
+			Assign Policy
+		</a>
+
+		
+    </form>	
 	
 	<table class="table table-bordered table-striped">
 		<thead class="thead-dark">
@@ -46,6 +54,9 @@
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Email</th>
+				<th>Regulations Id</th>
+				<th>Regulations Name</th>
+				<th>Add Comments</th>
 				<th>Action</th>
 			</tr>
 		</thead>
@@ -56,6 +67,9 @@
 				<td th:text="${tempEmployee.firstName}" />	
 				<td th:text="${tempEmployee.lastName}" />	
 				<td th:text="${tempEmployee.email}" />	
+				<td th:text="${tempEmployee.regulationsId}" />	
+				<td th:text="${tempEmployee.regulationName}" />	
+				<td th:text="${tempEmployee.addComments}" />	
 				
 				<td>
 					<div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
@@ -64,10 +78,7 @@
 						<a th:href="@{/employees/showFormForUpdate(employeeId=${tempEmployee.id})}"
 						   class="btn btn-info btn-sm">
 							Update
-						</a>
-
-					</div>					
-				
+						</a>							
 					<div sec:authorize="hasRole('ROLE_ADMIN')">  
 					
 						<!-- Add "delete" button/link -->					
@@ -76,7 +87,21 @@
 						   onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
 							Delete
 						</a>
+							<div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
 
+						<!-- Add "update" button/link -->
+						<a th:href="@{/employees/showFormForUpdate(employeeId=${tempEmployee.id})}"
+						   class="btn btn-primary btn-xs">
+							Assign policy
+						</a>
+				
+			<div sec:authorize="hasAnyRole('EMPLOYEE')">
+
+						<!-- Add "update" button/link -->
+						<a th:href="@{/employees/showFormForComment(employeeId=${tempEmployee.id})}"
+						   class="btn btn-success btn-xs">
+							Provide Comment
+						</a>
 					</div>					
 				</td>
 				

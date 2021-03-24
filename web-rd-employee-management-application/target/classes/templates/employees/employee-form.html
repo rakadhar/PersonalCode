@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+     crossorigin="anonymous">
 
 	<title>Save Employee</title>
 </head>
@@ -34,8 +37,15 @@
 					class="form-control mb-4 col-4" placeholder="Last name">
 
 			<input type="text" th:field="*{email}"
-					class="form-control mb-4 col-4" placeholder="Email">
-				
+					class="form-control mb-4 col-4" placeholder="Email">				
+			
+			<input type="text" th:field="*{regulationsId}"
+					class="form-control mb-4 col-4" placeholder="Regulations Id">
+
+			<input type="text" th:field="*{regulationName}"
+					class="form-control mb-4 col-4" placeholder="Regulation name">
+
+		
 			<button type="submit" class="btn btn-info col-2">Save</button>
 						
 		</form>
