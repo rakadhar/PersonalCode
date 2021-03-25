@@ -95,7 +95,9 @@ INSERT INTO `users`
 VALUES 
 ('Terry','{bcrypt}$2a$10$1gtXNSB4Tr5yT209R3cwAO8VC2Pf/9ltrUR0VA4edv49YOHmXiGpS',1),
 ('Avani','{bcrypt}$2a$10$1gtXNSB4Tr5yT209R3cwAO8VC2Pf/9ltrUR0VA4edv49YOHmXiGpS',1),
-('Emma','{bcrypt}$2a$10$1gtXNSB4Tr5yT209R3cwAO8VC2Pf/9ltrUR0VA4edv49YOHmXiGpS',1);
+('Emma','{bcrypt}$2a$10$1gtXNSB4Tr5yT209R3cwAO8VC2Pf/9ltrUR0VA4edv49YOHmXiGpS',1),
+('Yuri','{bcrypt}$2a$10$1gtXNSB4Tr5yT209R3cwAO8VC2Pf/9ltrUR0VA4edv49YOHmXiGpS',1),
+('Juan','{bcrypt}$2a$10$1gtXNSB4Tr5yT209R3cwAO8VC2Pf/9ltrUR0VA4edv49YOHmXiGpS',1);
 
 -- select * from users
 --
@@ -119,10 +121,15 @@ VALUES
 ('Emma','ROLE_EMPLOYEE'),
 ('Yuri','ROLE_EMPLOYEE'),
 ('Juan','ROLE_EMPLOYEE'),
+('Emma','ROLE_USER'),
+('Yuri','ROLE_USER'),
+('Juan','ROLE_USER'),
 ('Terry','ROLE_EMPLOYEE'),
 ('Terry','ROLE_MANAGER'),
 ('Avani','ROLE_EMPLOYEE'),
 ('Avani','ROLE_ADMIN');
+
+
 
 
 
